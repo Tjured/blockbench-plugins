@@ -183,5 +183,13 @@
 		"description": "Load template entity models for use with OptiFine CEM.",
 		"variant": "both",
 		"min_version": "3.2.0"
+	},
+	"symmetry_tool": {
+		"title": "X-Axis Texture-Symmetrizer",
+		"icon": "icon-mirror_x",
+		"author": "Tjured",
+		"description": "Make texture symmetrical on local x-axis",
+		"variant": "both",
+		"min_version": "3.3.1"
 	}
 }
