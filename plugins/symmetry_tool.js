@@ -39,15 +39,17 @@
     
     function symmetrize_with_blockuv(data) {
 		let texture = data.cube.faces[data.face].getTexture();
-	
+
 		Undo.initEdit({ textures: [texture], bitmap: true });
 	
-		let north_uv = Cube.selected[0].faces['north'].uv;
-		let south_uv = Cube.selected[0].faces['south'].uv;
-		let up_uv = Cube.selected[0].faces['up'].uv;
-		let down_uv = Cube.selected[0].faces['down'].uv;
-		let east_uv = Cube.selected[0].faces['east'].uv;
-		let west_uv = Cube.selected[0].faces['west'].uv;
+		let resolution_factor = texture.height/Project.texture_height
+
+		let north_uv = Cube.selected[0].faces['north'].uv.map(function(x) { return x * resolution_factor; });
+		let south_uv = Cube.selected[0].faces['south'].uv.map(function(x) { return x * resolution_factor; });
+		let up_uv = Cube.selected[0].faces['up'].uv.map(function(x) { return x * resolution_factor; });
+		let down_uv = Cube.selected[0].faces['down'].uv.map(function(x) { return x * resolution_factor; });
+		let east_uv = Cube.selected[0].faces['east'].uv.map(function(x) { return x * resolution_factor; });
+		let west_uv = Cube.selected[0].faces['west'].uv.map(function(x) { return x * resolution_factor; });
 	
 		texture.edit(function (canvas) {
 			let ctx = canvas.getContext('2d');
